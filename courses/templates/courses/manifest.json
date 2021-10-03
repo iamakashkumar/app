@@ -1,0 +1,10 @@
+{
+    "name":"Learn Akash",
+    "short_name":"LearnAkash",
+    "start_url":"./base.html",
+    "display":"standalone",
+    "background_color":"#FFE9D2",
+    "theme_color":"#FFE1CA",
+    "orientation":"protrait-primary",
+    "icon":"LearnAkash"
+}

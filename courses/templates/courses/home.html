@@ -1,0 +1,72 @@
+{% extends 'courses/base.html' %}
+{% block title %}courses{% endblock  %}
+{% block content %}
+<style>
+  .price{  
+     font-size:12px;
+}
+</style>
+
+<video width="100%" height="auto" controls id="player">
+  <source src="https://youtu.be/1--qqQrimMA" type="video/mp4">
+</video>
+
+
+
+<div class="container-fluid">
+<br>
+<h1 >{{course.category}}</h1>
+<br>
+   <div class="row">
+     {% for course in courses%}
+    <div class="col mx-auto ">
+      <div class="card mx-auto shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+  <img src="{{course.thumbnail.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{course.name}}</h5>
+
+    <p class="card-text">{{course.shortdescription}}</p>
+    <span class="price">
+    
+     <p>Save {{course.discount}}%
+     &nbsp;
+    Price: <del>Rs{{course.price}}</del>&nbsp; 
+    Total: Rs {{course.currentprice}} <h6>(FREE)</h6></p>
+
+   
+   
+    </div>
+    <div class="card-footer  ">
+    <div class="row ">
+     {% comment %} <div class="col"><a href="#" class="btn btn-success">Enroll</a></div> {% endcomment %}
+     <div class="col bg-success "><a href="/course/{{course.slug}}" class="text-light">Info</a></div>
+    </div>
+    
+    
+  </div>
+</div>
+
+    </div>
+    
+   
+  {%endfor %}
+  
+   </div>
+</div>
+{% endblock  %}
+
+<script>
+var player;
+ window.onload = function()=>{
+  document.getElementById("player")
+ }
+
+window.onresize = maintainRatio
+
+ function maintainRatio(){
+     var w = player.clientWidth
+     var h = (w*9)/16
+     console.log(w,h)
+     player.height=h
+ }
+</script>
